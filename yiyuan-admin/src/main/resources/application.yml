@@ -1,0 +1,20 @@
+server:
+  port: 9090
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: ${charging.datasource.driver-class-name}
+    url: jdbc:mysql://${charging.datasource.host}:${charging.datasource.port}/${charging.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${charging.datasource.username}
+    password: ${charging.datasource.password}
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+

@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.why</groupId>
+    <artifactId>charging-pile</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <lombok.version>1.18.38</lombok.version>
+        <mysql.version>8.0.28</mysql.version>
+        <druid.version>1.2.23</druid.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <spring-boot.version>2.5.15</spring-boot.version>
+        <spring-security.version>5.7.12</spring-security.version>
+        <spring-framework.version>5.3.39</spring-framework.version>
+        <pagehelper.version>1.4.7</pagehelper.version>
+    </properties>
+
+    <!--功能模块-->
+    <modules>
+        <!--后台管理-->
+        <module>yiyuan-admin</module>
+        <!--系统核心-->
+        <module>yiyuan-framework</module>
+        <!--通用工具-->
+        <module>yiyuna-common</module>
+    </modules>
+
+
+    <!--依赖声明-->
+    <dependencyManagement>
+      <dependencies>
+          <!-- 覆盖SpringFramework的依赖配置-->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-framework-bom</artifactId>
+              <version>${spring-framework.version}</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+
+          <!-- 覆盖SpringSecurity的依赖配置-->
+          <dependency>
+              <groupId>org.springframework.security</groupId>
+              <artifactId>spring-security-bom</artifactId>
+              <version>${spring-security.version}</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+
+          <!-- SpringBoot的依赖配置-->
+          <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-dependencies</artifactId>
+              <version>${spring-boot.version}</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+          <!--lombok 依赖-->
+          <dependency>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+          </dependency>
+          <!--mybatis依赖-->
+          <dependency>
+              <groupId>org.mybatis.spring.boot</groupId>
+              <artifactId>mybatis-spring-boot-starter</artifactId>
+              <version>${mybatis.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>mysql</groupId>
+              <artifactId>mysql-connector-java</artifactId>
+              <version>${mysql.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>com.alibaba</groupId>
+              <artifactId>druid-spring-boot-starter</artifactId>
+              <version>${druid.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>com.github.pagehelper</groupId>
+              <artifactId>pagehelper-spring-boot-starter</artifactId>
+              <version>${pagehelper.version}</version>
+          </dependency>
+      </dependencies>
+    </dependencyManagement>
+
+
+</project>
