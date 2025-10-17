@@ -4,8 +4,14 @@ import com.yiyuan.common.core.page.PageResult;
 import com.yiyuan.member.domain.dto.PageQueryDTO;
 import com.yiyuan.member.domain.dto.UserInfoDTO;
 import com.yiyuan.member.domain.entity.User;
-
 import java.util.List;
+
+/**
+ * 用户信息接口
+ *
+ * @author why
+ * @date 2025年10月09日 17:25
+ */
 
 public interface UserService {
     /**

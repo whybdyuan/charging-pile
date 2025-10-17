@@ -9,13 +9,19 @@ import com.yiyuan.member.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+/**
+ * 用户信息controller
+ *
+ * @author why
+ * @date 2025-10-7
+ */
 
 @RestController
 @RequestMapping("/admin/member/userinfo")
 @Slf4j
-public class userController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -31,7 +37,7 @@ public class userController {
     }
 
     /**
-     * 获取个人信息
+     * 获取个人信息，修改回显
      * @param id
      * @return
      */
