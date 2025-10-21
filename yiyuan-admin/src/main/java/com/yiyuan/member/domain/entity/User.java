@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -16,7 +17,7 @@ public class User {
     private String name;     //名字
     private String password; //密码
     private Integer status;  //用户状态（0 正常 1 禁用）
-    private LocalDateTime birthday; //生日
+    private LocalDate birthday;     //生日
     private String phoneNumber;     //电话号码
     private String email;           //邮箱
     private String address;         //地址

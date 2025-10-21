@@ -10,6 +10,12 @@
         </set>
         where id = #{id}
     </update>
+    <delete id="deleteRechargeRecord" parameterType="list">
+        delete from recharge_record where id in
+        <foreach collection="list"  item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
     <select id="selectPageQuery" resultType="com.yiyuan.member.domain.entity.Recharge" parameterType="com.yiyuan.member.domain.dto.PageQueryDTO">
         select * from recharge_record r
         <where>

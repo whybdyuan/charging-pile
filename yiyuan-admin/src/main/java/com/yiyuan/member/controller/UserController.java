@@ -43,16 +43,17 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public Result<User> getUserInfo(@PathVariable Long id){
+        log.info("获取用户信息：{}", id);
         User user = userService.getUserById(id);
         return Result.success(user);
     }
-
     /**
      * 修改用户信息
      * @return
      */
     @PutMapping
     public Result edit(@RequestBody UserInfoDTO userInfoDTO){
+        log.info("修改用户信息：{}", userInfoDTO);
         userService.editUserInfo(userInfoDTO);
         return Result.success();
     }

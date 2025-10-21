@@ -10,6 +10,8 @@ import com.yiyuan.member.service.RechargeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 充值记录service业务层处理
  *
@@ -32,7 +34,6 @@ public class RechargeServiceImpl implements RechargeService {
         return new PageResult(page.getTotal(),page.getResult());
     }
 
-
     /**
      * 修改充值记录
      * @param recharge
@@ -46,8 +47,15 @@ public class RechargeServiceImpl implements RechargeService {
      * @param id
      * @return
      */
-    @Override
     public Recharge getRechargeById(Long id) {
         return rechargeMapper.selectRechargeById(id);
+    }
+
+    /**
+     * 批量删除充值记录
+     * @param ids
+     */
+    public void batchRemove(List<Long> ids) {
+        rechargeMapper.deleteRechargeRecord(ids);
     }
 }

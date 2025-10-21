@@ -6,6 +6,8 @@ import com.yiyuan.member.domain.entity.Recharge;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * 充值记录表持久层
  *
@@ -35,4 +37,10 @@ public interface RechargeMapper {
      */
     @Select("select * from recharge_record where id = #{id}")
     Recharge selectRechargeById(Long id);
+
+    /**
+     * 批量删除充值记录
+     * @param ids
+     */
+    void deleteRechargeRecord(List<Long> ids);
 }

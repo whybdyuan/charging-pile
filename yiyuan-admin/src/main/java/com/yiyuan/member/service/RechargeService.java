@@ -4,6 +4,8 @@ import com.yiyuan.common.core.page.PageResult;
 import com.yiyuan.member.domain.dto.PageQueryDTO;
 import com.yiyuan.member.domain.entity.Recharge;
 
+import java.util.List;
+
 /**
  * 充值记录接口
  *
@@ -30,4 +32,9 @@ public interface RechargeService {
      */
     Recharge getRechargeById(Long id);
 
+    /**
+     * 批量删除充值记录
+     * @param ids
+     */
+    void batchRemove(List<Long> ids);
 }

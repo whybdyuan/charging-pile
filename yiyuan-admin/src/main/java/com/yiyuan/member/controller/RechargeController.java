@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 充值记录Controller
  *
@@ -43,7 +45,7 @@ public class RechargeController {
      * @return
      */
     @PutMapping
-    private Result edit(Recharge recharge) {
+    private Result edit(@RequestBody Recharge recharge) {
         rechargeService.editRechargeRecord(recharge);
         return Result.success();
     }
@@ -56,5 +58,16 @@ public class RechargeController {
     @GetMapping("/{id}")
     private Result<Recharge> getRechargeById(@PathVariable Long id) {
         return Result.success(rechargeService.getRechargeById(id));
+    }
+
+    /**
+     * 批量删除充值记录信息
+     * @param ids
+     * @return
+     */
+    @DeleteMapping
+    private Result batchRemove(@RequestParam List<Long> ids) {
+        rechargeService.batchRemove(ids);
+        return Result.success();
     }
 }
